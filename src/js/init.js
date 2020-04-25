@@ -42,3 +42,25 @@ function init() {
 }
 
 init();
+
+let dataArr = new Array();
+
+function setTextData() {
+  const data = document.getElementById("text-js");
+
+  const inputData = data.value;
+
+  if (inputData.length < 1) {
+    return;
+  }
+
+  dataArr.push(inputData);
+  data.value = "";
+  sessionStorage.setItem("todoList", dataArr);
+}
+
+function keyDown() {
+  if (event.keyCode === 13) {
+    setTextData();
+  }
+}
